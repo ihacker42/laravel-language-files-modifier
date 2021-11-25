@@ -7,7 +7,6 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use Config;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -36,14 +35,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $locale = Request::segment(1);
-		if (in_array($locale, Config::get('app.locales'))) {
-		    \App::setLocale($locale);
-		} else {
-		   \App::setLocale('en');
-		   $locale = 'en';
-		}
-
         $this->configureRateLimiting();
 
         $this->routes(function () {
@@ -52,7 +43,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
-            Route::prefix("$locale/")->middleware('web')
+            Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
