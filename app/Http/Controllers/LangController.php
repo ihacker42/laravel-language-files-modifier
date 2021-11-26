@@ -98,12 +98,7 @@ class LangController extends Controller
 	
 	public function addKeyData() {
 		$this->request->validate([
-			'key'		=>	'required',
-			'value_en'	=>	'required',
-			'value_hi'	=>	'required',
-			'value_te'	=>	'required',
-			'value_ta'	=>	'required',
-			'value_mr'	=>	'required',
+			'*'		=>	'required',
 		]);
 		
 		$this->file	=	$this->request->file;

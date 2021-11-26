@@ -1,5 +1,7 @@
 <?php
 	return [
-		"Hello"	=>	"123",
+		"check"	=>	"Check",
+		"Hello"	=>	"Hello",
+		"lang"	=>	"English",
 	];
 ?>

@@ -16,7 +16,8 @@
 								<div class="form-group row">
 									<label for="key" class="col-sm-2 col-form-label">Key</label>
 									<div class="col-sm-10">
-										<textarea class="form-control" type="text" id="key" name="key" placeholder="Enter Key Name"></textarea>
+										<input class="form-control" type="text" id="key" name="key" placeholder="Enter Key Name" value="{{old('key')}}" />
+										<span class="text-danger">{{$errors->first('key')}}</span>
 									</div>
 								</div>
 								@foreach($langs as $lang)
@@ -24,7 +25,7 @@
 									<div class="form-group row">
 										<label for="value_{{$lang}}" class="col-sm-2 col-form-label">Value {{$language}}</label>
 										<div class="col-sm-10">
-											<textarea class="form-control @error('value_'.$lang) has-danger @enderror" type="text" id="value_{{$lang}}" name="value_{{$lang}}" placeholder="Enter Key Value {{$language}}"></textarea>
+											<textarea class="form-control @error('value_'.$lang) has-danger @enderror" type="text" id="value_{{$lang}}" name="value_{{$lang}}" placeholder="Enter Key Value {{$language}}"> {{ old("value_$lang") }} </textarea>
 											<span class="text-danger">{{$errors->first('value_'.$lang)}}</span>
 										</div>
 									</div>

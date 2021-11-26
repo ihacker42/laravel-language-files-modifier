@@ -6,10 +6,10 @@
 				<div class="col-12">
 					<div class="card m-b-30">
 						<div class="card-body">
-							<h4 class="mt-0 header-title">Create Lang File ( English Only )</h4>
-							<div class="form-group row">
+							<h4 class="mt-0 header-title">Create Lang File ( English Only )<a class="btn btn-success waves-effect waves-light rounded-pill float-right" href="{{route('Lang.getFiles')}}"><i class="fas fa-file"></i> All</a></h4>
+							<div class="form-group row mt-4">
 								<label for="file" class="col-sm-2 col-form-label">File Name</label>
-								<div class="col-sm-10">
+								<div class="col-sm-9">
 									<input class="form-control @error('file') has-danger @enderror" type="text" id="file" name="file" value="{{old('file')}}" placeholder="Enter File Name" >
 									<span class="text-danger">{{$errors->first('file')}}</span>
 								</div>
